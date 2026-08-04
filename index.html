@@ -226,7 +226,7 @@
   <div class="tiles">
     <div class="tile hero"><div class="k">Your investment · cap<span class="pt">Seu investimento · teto</span></div><div class="v" id="tile-pot">R$25,400<br><small>$5,000 @ 5.09 — covers housing + MVP</small></div></div>
     <div class="tile"><div class="k">Minimum Viable Product (MVP)<span class="pt">Produto Mínimo Viável</span></div><div class="v" id="tile-p1">≈R$12,200</div></div>
-    <div class="tile"><div class="k">Comfort level · booking‑funded<span class="pt">Nível conforto · pago pelas reservas</span></div><div class="v" id="tile-p2">≈R$10,000</div></div>
+    <div class="tile"><div class="k">Comfort level · optional<span class="pt">Nível conforto · opcional</span></div><div class="v" id="tile-p2">≈R$10,000<br><small>bookings can pay it — or you can<br>as reservas pagam — ou você</small></div></div>
     <div class="tile"><div class="k">Reserve left after opening<span class="pt">Reserva após abrir</span></div><div class="v" id="tile-res">≈R$1,200</div></div>
   </div>
 
@@ -236,6 +236,7 @@
       <li><strong>Your investment is capped at $5,000.</strong> That one amount covers the deposit, the first month of rent + utilities, and the <strong>MVP (Minimum Viable Product)</strong> — the minimum furnishing to open the doors and take the first booking.<span class="pt"><strong>Seu investimento tem teto de $5.000.</strong> Esse valor cobre o depósito, o primeiro mês de aluguel + contas, e o <strong>MVP (Produto Mínimo Viável)</strong> — a mobília mínima para abrir as portas e receber a primeira reserva.</span></li>
       <li>The <strong>Comfort level</strong> — the version that feels genuinely nice — is <strong>paid by the first months of bookings, not by more money from you.</strong> Luxury is optional, and later.<span class="pt">O <strong>nível conforto</strong> — a versão realmente agradável — é <strong>pago pelas primeiras reservas, não por mais dinheiro seu.</strong> O luxo é opcional, e depois.</span></li>
       <li>We run these for a living: <strong>Superhosts on two other apartments, 4.8★ across 100+ reviews.</strong> This is a beautiful old Santa Teresa flat with stained glass — it rents.<span class="pt">Nós vivemos disso: <strong>Superhosts em dois outros apartamentos, 4,8★ em mais de 100 avaliações.</strong> É um lindo apartamento antigo em Santa Teresa, com vitrais — ele aluga.</span></li>
+      <li><strong>And this is your home, too.</strong> The comfort level buys the things you’ll feel on your own stays — starting with a genuinely good bed. Put a little more in now if you’d like it lovely from your first night, or let the bookings add it. Your choice, never required.<span class="pt"><strong>E esta casa também é sua.</strong> O nível conforto traz o que você vai sentir nas suas próprias estadias — a começar por uma cama de verdade. Coloque um pouco mais agora, se quiser tudo aconchegante desde a primeira noite, ou deixe as reservas irem acrescentando. Sua escolha, nunca obrigatório.</span></li>
     </ul>
   </div>
 
@@ -244,15 +245,15 @@
     <span class="lg lg2">Pass 2 · Comfort<span class="pt">Conforto</span></span>
     <span class="lg lg3">Pass 3 · Luxury<span class="pt">Luxo</span></span>
   </div>
-  <h2>The pot does three jobs <span class="pt">O caixa tem três tarefas</span></h2>
+  <h2>The base investment does three jobs <span class="pt">O investimento base tem três tarefas</span></h2>
   <p class="section-note">Furnishing is only one claim on the $5,000. Housing comes off the top, and the <strong>fiador</strong> is the biggest swing. Every number below is editable.
     <span class="pt">A mobília é só uma parte dos $5.000. A moradia sai primeiro, e o <strong>fiador</strong> é o que mais muda a conta. Todos os números abaixo são editáveis.</span></p>
-  <div class="potline"><label for="pot">The pot / O caixa (R$)</label><input id="pot" type="number" value="25400"></div>
+  <div class="potline"><label for="pot">Base investment / Investimento base (R$)</label><input id="pot" type="number" value="25400"></div>
   <div class="tablewrap">
     <table class="fin">
       <thead>
         <tr>
-          <th>Cash out of the pot<span class="pt">Saídas do caixa</span></th>
+          <th>Out of the base investment<span class="pt">Do investimento base</span></th>
           <th>With fiador<span class="pt">Com fiador</span></th>
           <th>Likely<span class="pt">Provável</span></th>
           <th>Worst<span class="pt">Pior caso</span></th>
@@ -282,8 +283,8 @@
   </div>
   <div class="callout ochre">
     <h4>The discipline this buys <span class="pt">A disciplina que isso traz</span></h4>
-    <p>Phases 2 and 3 come from nightly revenue over the first months, not the launch pot — so the pot only covers housing + Phase 1. Without a fiador the reserve is thin; with one it jumps by about R$6,000. Chasing the fiador is worth real effort.
-      <span class="pt">As fases 2 e 3 saem da receita das diárias nos primeiros meses, não do caixa inicial — então o caixa só cobre moradia + Fase 1. Sem fiador a reserva fica apertada; com um, sobe cerca de R$6.000. Vale muito a pena correr atrás do fiador.</span></p>
+    <p>Phases 2 and 3 come from nightly revenue over the first months, not the base investment — so it only covers housing + the MVP. Without a fiador the reserve is thin; with one it jumps by about R$6,000. Chasing the fiador is worth real effort.
+      <span class="pt">As fases 2 e 3 saem da receita das diárias nos primeiros meses, não do investimento base — então ele só cobre moradia + o MVP. Sem fiador a reserva fica apertada; com um, sobe cerca de R$6.000. Vale muito a pena correr atrás do fiador.</span></p>
   </div>
 
   <h2>By area — what fits each pass <span class="pt">Por ambiente — o que cabe em cada fase</span></h2>
@@ -320,7 +321,7 @@
 
 <script>
 const DATA = [
- {phase:1, num:'1', t:'Open the doors', s:'The bare minimum to accept a booking — price to go live', s_pt:'O mínimo para aceitar uma reserva — preço para abrir', fund:'from the pot / do caixa', rooms:[
+ {phase:1, num:'1', t:'Open the doors', s:'The bare minimum to accept a booking — price to go live', s_pt:'O mínimo para aceitar uma reserva — preço para abrir', fund:'from your base investment / do investimento base', rooms:[
    {en:'Kitchen', pt:'Cozinha', items:[
      {id:'fridge', en:'Refrigerator, frost‑free ~340L', pt:'Geladeira frost‑free ~340L', de:'Consul CRM39AB — the value/reliability standard. Cheaper used on OLX.', dp:'Consul CRM39AB — o padrão de custo‑benefício. Mais barata usada na OLX.', price:2000, chip:'Merc. Livre', url:'https://www.mercadolivre.com.br/geladeira-consul-frost-free-340l-branca-prateleiras-crm39ab/p/MLB15536306'},
      {id:'stove', en:'Stove, 4 burners', pt:'Fogão 4 bocas', de:'Atlas Mônaco, auto‑ignition, inox top.', dp:'Atlas Mônaco, acendimento automático, mesa inox.', price:850, chip:'Merc. Livre', url:'https://lista.mercadolivre.com.br/fogao-4-bocas-atlas-monaco'},
