@@ -30,10 +30,10 @@
   }
 
   *{box-sizing:border-box}
-  body{margin:0; background:var(--paper); color:var(--ink);
+  body{margin:0; background:var(--paper); color:var(--ink); font-size:1.06rem;
     font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased}
   .wrap{max-width:940px; margin:0 auto; padding:clamp(1.2rem,4vw,3rem) clamp(1rem,4vw,2rem) 4rem}
-  .pt{display:block; font-style:italic; color:var(--pt); font-size:.9em; line-height:1.35; margin-top:.12rem}
+  .pt{display:block; font-style:italic; color:var(--pt); font-size:1em; line-height:1.4; margin-top:.15rem}
 
   header{border-bottom:2px solid var(--ochre); padding-bottom:1.4rem; margin-bottom:1.4rem}
   .eyebrow{font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ochre); font-weight:700}
@@ -195,9 +195,18 @@
   .gallery figcaption{font-size:.72rem;color:var(--soft);margin-top:.2rem;line-height:1.3}
   .callout{border:1px solid var(--line); border-left:4px solid var(--accent); background:var(--card); border-radius:10px; padding:1rem 1.2rem; margin-top:1.4rem; box-shadow:var(--shadow)}
   .callout.ochre{border-left-color:var(--ochre)}
-  .callout.good{border-left-color:#2e7d5b; background:#f4faf6}
-  .tile.hero{background:#f4faf6; border-color:#bfe0cd}
-  .fin tr.ownerblock td{background:#f6efe0}
+  .callout.good{border-left-color:#2e7d5b; background:rgba(46,125,91,.10)}
+  .tile.hero{background:rgba(46,125,91,.12); border-color:rgba(46,125,91,.42)}
+  .fin tr.ownerblock td{background:rgba(180,140,45,.16)}
+  @media(max-width:640px){
+    body{font-size:1.16rem}
+    .tile .k{font-size:.95rem}
+    .tile .v small,.tile .v small.usd{font-size:.9rem}
+    .section-note,.metaline,.toolbar,.toolbar button{font-size:1.02rem}
+    table.fin{font-size:1.02rem}
+    .callout li,.callout p,.callout h4{font-size:1.05rem}
+    .lede{font-size:1.18rem}
+  }
   .callout h4{margin:0 0 .5rem; font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:1.05rem; font-weight:600}
   .callout h4 .pt{font-family:system-ui,sans-serif;font-size:.85rem}
   .callout ul{margin:.3rem 0 0; padding-left:1.15rem}
@@ -297,26 +306,28 @@
         <th>Month<span class="pt">Mês</span></th>
         <th>What drives it<span class="pt">O que puxa</span></th>
         <th>Gross R$<span class="pt">Bruto</span></th>
-        <th>Net of rent + utilities<span class="pt">Líquido de aluguel + contas</span></th>
+        <th>Net to reinvest*<span class="pt">Líquido p/ reinvestir*</span></th>
       </tr></thead>
       <tbody>
-        <tr><td>Sep 2026</td><td>Open into <strong>Rock in Rio</strong> (Sep 4–13) · new listing<span class="pt">Abre no Rock in Rio · anúncio novo</span></td><td>≈5,500</td><td>≈R$1,340 · $263</td></tr>
-        <tr><td>Oct 2026</td><td>Shoulder — banking reviews<span class="pt">Baixa‑média — juntando avaliações</span></td><td>≈5,300</td><td>≈R$1,150 · $226</td></tr>
-        <tr><td>Nov 2026</td><td>Shoulder<span class="pt">Baixa‑média</span></td><td>≈6,000</td><td>≈R$1,770 · $348</td></tr>
-        <tr><td>Dec 2026</td><td><strong>Christmas–New Year</strong> · your comp: R$7,000 / 6 nts<span class="pt">Natal–Ano Novo · seu comparável: R$7.000 / 6 noites</span></td><td>≈9,400</td><td>≈R$4,700 · $923</td></tr>
-        <tr class="ownerblock"><td>Jan 2027</td><td><strong>Your birthday week blocked (Jan 19)</strong> — owner stay; a soft month, so little given up<span class="pt">Sua semana de aniversário reservada — mês fraco, pouco se abre mão</span></td><td>≈4,000</td><td>≈R$0 · break‑even</td></tr>
-        <tr><td>Feb 2027</td><td><strong>Carnaval</strong> (Feb 5–10) · your comp: R$8,000 / 10 nts<span class="pt">Carnaval · seu comparável: R$8.000 / 10 noites</span></td><td>≈11,400</td><td>≈R$6,430 · $1,264</td></tr>
-        <tr><td>Mar 2027</td><td>Santa Teresa’s <strong>own peak</strong> (Mar–Apr)<span class="pt">Pico próprio de Santa Teresa</span></td><td>≈8,900</td><td>≈R$4,290 · $843</td></tr>
-        <tr class="sum"><td>7 months<span class="pt">7 meses</span></td><td>net of rent + utilities<span class="pt">líquido de aluguel + contas</span></td><td>≈50,500</td><td><strong>≈R$19,700 · $3,870</strong></td></tr>
+        <tr><td>Sep 2026</td><td>Open into <strong>Rock in Rio</strong> (Sep 4–13) · new listing<span class="pt">Abre no Rock in Rio · anúncio novo</span></td><td>≈5,500</td><td>≈R$490 · $96</td></tr>
+        <tr><td>Oct 2026</td><td>Shoulder — banking reviews<span class="pt">Baixa‑média — juntando avaliações</span></td><td>≈5,300</td><td>≈R$380 · $75</td></tr>
+        <tr><td>Nov 2026</td><td>Shoulder<span class="pt">Baixa‑média</span></td><td>≈6,000</td><td>≈R$760 · $149</td></tr>
+        <tr><td>Dec 2026</td><td><strong>Christmas–New Year</strong> · your comp: R$7,000 / 6 nts<span class="pt">Natal–Ano Novo · seu comparável: R$7.000 / 6 noites</span></td><td>≈9,400</td><td>≈R$2,610 · $513</td></tr>
+        <tr class="ownerblock"><td>Jan 2027</td><td><strong>Your birthday week blocked (Jan 19)</strong> — owner stay; a soft month<span class="pt">Sua semana de aniversário reservada — mês fraco</span></td><td>≈4,000</td><td>≈ −R$450 · small loss</td></tr>
+        <tr><td>Feb 2027</td><td><strong>Carnaval</strong> (Feb 5–10) · your comp: R$8,000 / 10 nts<span class="pt">Carnaval · seu comparável: R$8.000 / 10 noites</span></td><td>≈11,400</td><td>≈R$3,700 · $727</td></tr>
+        <tr><td>Mar 2027</td><td>Santa Teresa’s <strong>own peak</strong> (Mar–Apr)<span class="pt">Pico próprio de Santa Teresa</span></td><td>≈8,900</td><td>≈R$2,340 · $460</td></tr>
+        <tr class="sum"><td>7 months<span class="pt">7 meses</span></td><td>to reinvest, after everything<span class="pt">p/ reinvestir, após tudo</span></td><td>≈50,500</td><td><strong>≈R$9,800 · $1,925</strong></td></tr>
       </tbody>
     </table>
   </div>
+  <p class="section-note">* <strong>Net to reinvest</strong> = gross − Airbnb (~15%) − ~10% running costs (food, taxis while working) − income tax (~27.5% on the profit, since it stacks on your existing rental income) − rent − utilities. Cleaning is the guest’s, paid to Nilson. No property tax. A contador could cut the income tax with a company (Simples Nacional).
+    <span class="pt">* <strong>Líquido p/ reinvestir</strong> = bruto − Airbnb (~15%) − ~10% de custos (comida, táxis no trabalho) − imposto de renda (~27,5% sobre o lucro, pois soma à sua renda de aluguel) − aluguel − contas. A limpeza é do hóspede, vai para o Nilson. Sem IPTU. Um contador pode reduzir o imposto com uma empresa (Simples Nacional).</span></p>
   <div class="callout good">
     <h4>What the earnings build — reinvested, not withdrawn <span class="pt">O que as reservas constroem — reinvestido, não sacado</span></h4>
     <ul>
-      <li><strong>Positive almost every month</strong> from day one. The one break‑even month is January — when you’re staying there for your birthday anyway.<span class="pt"><strong>Positivo quase todo mês</strong> desde o início. O único mês no zero é janeiro — quando você está lá no seu aniversário.</span></li>
-      <li><strong>Every real goes straight back into the apartment.</strong> On this pace, by December the bookings have already bought the comfort layer — TV, washing machine, ceiling fans, the reading armchair, artwork, plants — so it’s genuinely comfortable before your January stay. By Carnaval the whole comfort tier (~R$20,000) is essentially done; then the earnings start funding luxury (AC, rugs). All from bookings — no more money in.<span class="pt"><strong>Cada real volta para o apartamento.</strong> Neste ritmo, até dezembro as reservas já compraram a camada de conforto — TV, máquina de lavar, ventiladores, a poltrona de leitura, quadros, plantas — então já está confortável antes da sua estadia em janeiro. Até o Carnaval, toda a faixa de conforto (~R$20.000) está praticamente pronta; depois as reservas começam a bancar o luxo (ar‑condicionado, tapetes). Tudo das reservas — sem novos aportes.</span></li>
-      <li>Straight talk: it’s a <strong>new listing</strong> (reviews ramp even for Superhosts), Santa Teresa is <strong>soft in Dec–Jan</strong> outside the holidays and strongest Mar–Apr, and the dependable money is the <strong>event spikes</strong> — Rock in Rio, Réveillon, Carnaval. Not yet counted: condomínio / IPTU if the rent doesn’t include them. Cleaning is charged to the guest and paid to Nilson — a pass‑through, not income or cost here.<span class="pt">Falando direto: é um <strong>anúncio novo</strong>, Santa Teresa é <strong>fraca em dez–jan</strong> fora das festas e mais forte em mar–abr, e o dinheiro certo está nos <strong>picos de evento</strong>. Ainda não incluído: condomínio / IPTU se o aluguel não os cobrir. A limpeza é cobrada do hóspede e vai para o Nilson — repasse, não entra como receita nem custo aqui.</span></li>
+      <li><strong>Net positive across the year.</strong> Strong in the event months, thin in the quiet shoulder, and a small loss in January — the month you’re staying there for your birthday anyway.<span class="pt"><strong>Positivo no ano.</strong> Forte nos meses de evento, fraco na baixa temporada, e uma pequena perda em janeiro — o mês em que você está lá no seu aniversário.</span></li>
+      <li><strong>Every real goes back into the apartment.</strong> After Airbnb, running costs and tax it’s slower, but it still improves itself: by your January stay (~R$4,000 reinvested) it’s cozy and lived‑in — fans, reading chair, lamps, tables, plants, art. The TV and ceiling fans come around Carnaval; the full comfort layer (~R$20,000) funds itself over roughly the first year, then luxury (AC, rugs). Never another cent from you.<span class="pt"><strong>Cada real volta para o apartamento.</strong> Depois do Airbnb, dos custos e do imposto é mais devagar, mas ainda se melhora sozinho: até a sua estadia em janeiro (~R$4.000 reinvestidos) já está aconchegante — ventiladores, poltrona, luminárias, mesas, plantas, quadros. A TV e os ventiladores de teto chegam perto do Carnaval; toda a camada de conforto (~R$20.000) se paga em cerca de um ano, depois o luxo (ar‑condicionado, tapetes). Sem novos aportes.</span></li>
+      <li>Straight talk: it’s a <strong>new listing</strong> (reviews ramp even for Superhosts), Santa Teresa is <strong>soft in Dec–Jan</strong> outside the holidays and strongest Mar–Apr, and the dependable money is the <strong>event spikes</strong> — Rock in Rio, Réveillon, Carnaval. Cleaning is the guest’s, paid to Nilson (not counted here), and there’s no property tax. Running it through a company (Simples Nacional) could lower the income tax.<span class="pt">Falando direto: é um <strong>anúncio novo</strong>, Santa Teresa é <strong>fraca em dez–jan</strong> fora das festas e mais forte em mar–abr, e o dinheiro certo está nos <strong>picos de evento</strong>. A limpeza é do hóspede, vai para o Nilson (não entra aqui), e não há IPTU. Uma empresa (Simples Nacional) pode reduzir o imposto.</span></li>
     </ul>
   </div>
 
