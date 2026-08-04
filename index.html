@@ -195,6 +195,8 @@
   .gallery figcaption{font-size:.72rem;color:var(--soft);margin-top:.2rem;line-height:1.3}
   .callout{border:1px solid var(--line); border-left:4px solid var(--accent); background:var(--card); border-radius:10px; padding:1rem 1.2rem; margin-top:1.4rem; box-shadow:var(--shadow)}
   .callout.ochre{border-left-color:var(--ochre)}
+  .callout.good{border-left-color:#2e7d5b; background:#f4faf6}
+  .tile.hero{background:#f4faf6; border-color:#bfe0cd}
   .callout h4{margin:0 0 .5rem; font-family:"Iowan Old Style",Palatino,Georgia,serif; font-size:1.05rem; font-weight:600}
   .callout h4 .pt{font-family:system-ui,sans-serif;font-size:.85rem}
   .callout ul{margin:.3rem 0 0; padding-left:1.15rem}
@@ -208,8 +210,8 @@
   <header>
     <div class="eyebrow">Furnishing plan · joint with Hermes<span class="pt">Plano de mobília · projeto com o Hermes</span></div>
     <h1>Casa Da Maria</h1>
-    <p class="lede">A phased shopping list for the Rio house — editable prices, and a “+” on each item for a photo. Open lean, then let bookings pay for comfort and luxury.
-      <span class="pt">Uma lista de compras em fases para a casa no Rio — preços editáveis, e um “+” em cada item para a foto. Abra enxuta e deixe as reservas pagarem conforto e luxo.</span></p>
+    <p class="lede">The first investment is one bounded number — the <strong>Minimum Viable Product (MVP)</strong>: everything needed to open the doors and take the first booking. Nothing more comes out of your pocket — from there, guest bookings pay for the comfort level and every upgrade.
+      <span class="pt">O primeiro investimento é um único valor fechado — o <strong>Produto Mínimo Viável (MVP)</strong>: tudo o que é preciso para abrir as portas e receber a primeira reserva. Nada além disso sai do seu bolso — a partir daí, as reservas dos hóspedes pagam o nível conforto e cada melhoria.</span></p>
     <div class="metaline">
       <span><span class="dot"></span>$5,000 all‑in ≈ R$25,400 (R$5.09/USD)</span>
       <span><span class="dot"></span>Santa Teresa · CEP 20240‑060 · 127V</span>
@@ -222,10 +224,19 @@
   </header>
 
   <div class="tiles">
-    <div class="tile"><div class="k">The pot<span class="pt">O caixa</span></div><div class="v" id="tile-pot">R$25,400<br><small>$5,000 @ 5.09</small></div></div>
-    <div class="tile"><div class="k">All phases<span class="pt">Todas as fases</span></div><div class="v" id="tile-all">≈R$28,700</div></div>
-    <div class="tile"><div class="k">MVP · Phase 1<span class="pt">Mínimo · Fase 1</span></div><div class="v" id="tile-p1">≈R$12,200</div></div>
-    <div class="tile"><div class="k">Reserve (likely)<span class="pt">Reserva (provável)</span></div><div class="v" id="tile-res">≈R$1,200</div></div>
+    <div class="tile hero"><div class="k">Your investment · cap<span class="pt">Seu investimento · teto</span></div><div class="v" id="tile-pot">R$25,400<br><small>$5,000 @ 5.09 — covers housing + MVP</small></div></div>
+    <div class="tile"><div class="k">Minimum Viable Product (MVP)<span class="pt">Produto Mínimo Viável</span></div><div class="v" id="tile-p1">≈R$12,200</div></div>
+    <div class="tile"><div class="k">Comfort level · booking‑funded<span class="pt">Nível conforto · pago pelas reservas</span></div><div class="v" id="tile-p2">≈R$10,000</div></div>
+    <div class="tile"><div class="k">Reserve left after opening<span class="pt">Reserva após abrir</span></div><div class="v" id="tile-res">≈R$1,200</div></div>
+  </div>
+
+  <div class="callout good">
+    <h4>Will this become a money pit? No. <span class="pt">Isto vira um poço sem fundo? Não.</span></h4>
+    <ul>
+      <li><strong>Your investment is capped at $5,000.</strong> That one amount covers the deposit, the first month of rent + utilities, and the <strong>MVP (Minimum Viable Product)</strong> — the minimum furnishing to open the doors and take the first booking.<span class="pt"><strong>Seu investimento tem teto de $5.000.</strong> Esse valor cobre o depósito, o primeiro mês de aluguel + contas, e o <strong>MVP (Produto Mínimo Viável)</strong> — a mobília mínima para abrir as portas e receber a primeira reserva.</span></li>
+      <li>The <strong>Comfort level</strong> — the version that feels genuinely nice — is <strong>paid by the first months of bookings, not by more money from you.</strong> Luxury is optional, and later.<span class="pt">O <strong>nível conforto</strong> — a versão realmente agradável — é <strong>pago pelas primeiras reservas, não por mais dinheiro seu.</strong> O luxo é opcional, e depois.</span></li>
+      <li>We run these for a living: <strong>Superhosts on two other apartments, 4.8★ across 100+ reviews.</strong> This is a beautiful old Santa Teresa flat with stained glass — it rents.<span class="pt">Nós vivemos disso: <strong>Superhosts em dois outros apartamentos, 4,8★ em mais de 100 avaliações.</strong> É um lindo apartamento antigo em Santa Teresa, com vitrais — ele aluga.</span></li>
+    </ul>
   </div>
 
   <div class="legend">
@@ -276,7 +287,7 @@
   </div>
 
   <h2>By area — what fits each pass <span class="pt">Por ambiente — o que cabe em cada fase</span></h2>
-  <p class="section-note">Each area is split into three bands: <strong>MVP</strong> (the minimum to open), <strong>Comfort</strong>, and <strong>Luxury</strong>. The table sums each. <span class="pt">Cada ambiente é dividido em três faixas: <strong>Mínimo (MVP)</strong>, <strong>Conforto</strong> e <strong>Luxo</strong>. A tabela soma cada uma.</span></p>
+  <p class="section-note">Each area is split into three bands: <strong>MVP</strong> (your first investment — the minimum to open), <strong>Comfort</strong> and <strong>Luxury</strong> (both funded by bookings, not more money from you). <span class="pt">Cada ambiente é dividido em três faixas: <strong>Mínimo (MVP)</strong> (seu primeiro investimento — o mínimo para abrir), <strong>Conforto</strong> e <strong>Luxo</strong> (pagos pelas reservas, não por mais dinheiro seu).</span></p>
   <div id="summary"></div>
   <div id="phases"></div>
 
@@ -581,7 +592,7 @@ function recompute(){
   document.querySelectorAll('.sumtot').forEach(function(el){ const a=el.dataset.area; const s=at[a]?(at[a][1]+at[a][2]+at[a][3]):0; el.innerHTML=fmt(s)+'<br><small class="usd">'+usd(s)+'</small>'; });
   document.querySelectorAll('.grand').forEach(function(el){ const t=el.dataset.tier; const v=(t==='all')?(tierSum[1]+tierSum[2]+tierSum[3]):tierSum[t]; el.innerHTML=fmt(v)+'<br><small class="usd">'+usd(v)+'</small>'; });
   document.getElementById('tile-p1').innerHTML='≈'+fmt(tierSum[1])+'<small class="usd">'+usd(tierSum[1])+'</small>';
-  document.getElementById('tile-all').innerHTML='≈'+fmt(tierSum[1]+tierSum[2]+tierSum[3])+'<small class="usd">'+usd(tierSum[1]+tierSum[2]+tierSum[3])+'</small>';
+  document.getElementById('tile-p2').innerHTML='≈'+fmt(tierSum[2])+'<small class="usd">'+usd(tierSum[2])+'</small>';
   const pot=parseFloat(document.getElementById('pot').value)||0;
   document.querySelectorAll('.p1cell').forEach(function(el){ el.innerHTML=fmt(tierSum[1])+'<br><small class="usd">'+usd(tierSum[1])+'</small>'; });
   const uv=function(c){ const e=document.getElementById('util-'+c); return e?(parseFloat(e.value)||0):0; };
