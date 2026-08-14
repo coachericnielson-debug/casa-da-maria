@@ -201,6 +201,9 @@
   .fin tr.milestone td{background:rgba(46,125,91,.14); padding:.55rem .6rem; font-weight:500}
   .row.done{background:rgba(46,125,91,.13); border-radius:8px}
   .donebadge{display:inline-block;background:#2e7d5b;color:#fff;font-size:.72rem;font-weight:700;padding:.1rem .5rem;border-radius:999px;margin-left:.4rem;vertical-align:middle;letter-spacing:.02em;white-space:nowrap}
+  .donetog{font:inherit;font-size:.72rem;font-weight:700;padding:.12rem .55rem;border-radius:999px;border:1px solid var(--line);background:var(--field);color:var(--soft);cursor:pointer;margin-left:.4rem;vertical-align:middle;white-space:nowrap}
+  .donetog.on{background:#2e7d5b;color:#fff;border-color:#2e7d5b}
+  .tally{font-weight:700;color:#2e7d5b}
   @media(max-width:640px){
     body{font-size:1.16rem}
     .tile .k{font-size:.95rem}
@@ -234,6 +237,7 @@
       <span><span class="dot"></span>Santa Teresa · CEP 20240‑060 · 127V</span>
     </div>
     <div class="toolbar">
+      <span id="tracktally" class="tally"></span>
       <span>✎ Prices are editable — totals update live. <em>/ Preços editáveis — os totais atualizam sozinhos.</em></span>
       <span id="savenote" class="saved"></span>
       <button id="resetbtn" type="button">Reset / Restaurar</button>
@@ -546,14 +550,15 @@ function fmt(n){ return 'R$'+Math.round(n).toLocaleString('pt-BR'); }
 function rowHTML(it, phase){
   const sp = store.prices||{}, si = store.imgs||{}, sn = store.notes||{};
   const price = (sp[it.id]!=null)? sp[it.id] : it.price;
+  const sd = store.done||{}; const isDone = (sd[it.id]!=null)? sd[it.id] : it.done;
   const chip = it.chip? `<span class="chip ${it.cc||''}">${esc(it.chip)}</span>` : '';
   const prod = PROD_IMG[it.id] && IMAGES[PROD_IMG[it.id]] ? IMAGES[PROD_IMG[it.id]] : '';
   const shown = si[it.id] || prod;
   const tile = shown ? `<img class="rtile" src="${shown}" alt="" loading="lazy">` : `<span class="rtile empty">+</span>`;
-  return `<div class="row${it.done?' done':''}" data-id="${it.id}">
+  return `<div class="row${isDone?' done':''}" data-id="${it.id}">
     <button class="exp" type="button" aria-expanded="false" aria-label="Show photo">+</button>
     <div class="name">${tile}<div class="ntext">
-      <div class="title"><a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.en)}</a> ${chip}${it.done?'<span class="donebadge">✓ got it</span>':''}<span class="pt">${esc(it.pt)}</span></div>
+      <div class="title"><a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.en)}</a> ${chip}<button class="donetog${isDone?' on':''}" type="button" data-id="${it.id}">${isDone?'✓ got it':'＋ mark bought'}</button><span class="pt">${esc(it.pt)}</span></div>
       <div class="detail">${esc(it.de)}<span class="pt">${esc(it.dp)}</span></div>
     </div></div>
     <div class="pricecell"><div class="prow"><span class="cur">R$</span><input class="pinput" type="number" inputmode="numeric" data-phase="${phase}" data-id="${it.id}" value="${price}"></div><div class="usd">$${Math.round(price/RATE).toLocaleString('en-US')}</div></div>
@@ -644,6 +649,16 @@ function recompute(){
   const depL=parseFloat(document.getElementById('dep-l').value)||0, runL=parseFloat(document.getElementById('run-l').value)||0;
   const resv=pot-depL-runL-uv('l')-tierSum[1];
   document.getElementById('tile-res').innerHTML='≈'+fmt(resv)+'<small class="usd">'+usd(resv)+'</small>';
+  (function(){
+    var sd=store.done||{}, sp=store.prices||{}, bn=0, br=0, lr=0;
+    DATA.forEach(function(ph){ph.rooms.forEach(function(rm){rm.items.forEach(function(it){
+      var pr=(sp[it.id]!=null)?sp[it.id]:(it.price||0);
+      var d=(sd[it.id]!=null)?sd[it.id]:it.done;
+      if(d){bn++; br+=pr;} else lr+=pr;
+    });});});
+    var tt=document.getElementById('tracktally');
+    if(tt) tt.innerHTML='✓ Bought <strong>'+bn+'</strong> · <strong>'+fmt(br)+'</strong> spent · '+fmt(lr)+' still to buy';
+  })();
 }
 
 function wire(){
@@ -667,6 +682,14 @@ function wire(){
     if(hidden){g.removeAttribute('hidden'); b.textContent='📷 hide';} else {g.setAttribute('hidden',''); b.textContent='📷 see this space';}
   }));
   document.querySelectorAll('.rtile').forEach(t=> t.addEventListener('click',()=>{ const btn=t.closest('.row').querySelector('.exp'); if(btn) btn.click(); }));
+  document.querySelectorAll('.donetog').forEach(b=> b.addEventListener('click',function(e){
+    e.preventDefault(); e.stopPropagation();
+    const row=b.closest('.row'); const now=!row.classList.contains('done');
+    store.done=store.done||{}; store.done[b.dataset.id]= now?1:0; saveStore(store);
+    row.classList.toggle('done', now); b.classList.toggle('on', now);
+    b.textContent= now?'✓ got it':'＋ mark bought';
+    recompute();
+  }));
 }
 
 // housing + pot inputs (static in DOM)
